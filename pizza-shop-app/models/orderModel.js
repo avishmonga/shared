@@ -16,13 +16,14 @@ const itemSchema = new mongoose.Schema({
   price: { type: Number, required: true },
 });
 const orderSchema = new mongoose.Schema({
-  customerName: { type: String, required: true },
+  clientId: { type: String, required: true },
   items: {
     type: [itemSchema],
     validate: [arrayLimit, 'At least one item is required'],
   },
   status: { type: String, enum: statusEnum, default: 'pending' },
   createdAt: { type: Date, default: Date.now },
+  totalPrice: { type: Number, required: true },
 });
 
 // Validator function to ensure at least one item in order should be present before creating
