@@ -14,6 +14,7 @@ const itemSchema = new mongoose.Schema({
   quantity: { type: Number, required: true },
   type: { type: String, enum: itemTypeEnum, required: true },
   price: { type: Number, required: true },
+  image: { type: String, required: true },
 });
 const orderSchema = new mongoose.Schema({
   clientId: { type: String, required: true },
